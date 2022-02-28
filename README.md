@@ -55,6 +55,7 @@ S.add_cls_value(Survey, AttrVal('sentera_id', 'senteraId'))
 S.add_attr_value(Survey, AttrVal(val='sentera_id', attr='mosaicSenteraId', col='mosaics'))
 S.add_attr_value(Survey, AttrVal(val='pagination', attr=S.define_pagination(1, 10), col='mosaics'))
 ```
+```python
 query = S.r_fields(
     dc=Survey,
     mod=MOD(
@@ -65,6 +66,8 @@ query = S.r_fields(
         exclude_name=['pagination', 'page', 'page_size'],  # Individual attributes of classes may not want to be returned
     )
 )
+```
+
 ```python
 S.print_query()
 >>> query Surveys { survey(sentera_id: $senteraId) {   sentera_id   start_time   end_time   images   {     total_count     results     {       altitude       calculated_index       camera_make       camera_model       captured_at       color_applied       content_hash       created_at       download_filename       filename       gps_carrier_phase_status       gps_horizontal_accuracy       gps_vertical_accuracy       latitude       longitude       orientation       path       pitch       roll       sensor_type       sentera_id       size       updated_at       url       yaw     }   }   mosaics(sentera_id: $mosaicSenteraId, pagination: {page: 1 page_size: 10})   {     total_count     results     {       sentera_id       mosaic_type       quality       s3_uri       name       image_status       is_from_sentera_sensor       message       files       {         total_count         results         {           download_filename           file_type           filename           path           s3_uri           sentera_id           size           updated_at           url         }       }       captured_at       acres     }   }   feature_sets   {     total_count     results     {       type       sentera_id       name       error       files       {         total_count         results         {           download_filename           file_type           filename           path           s3_uri           sentera_id           size           updated_at           url         }       }       status       created_at     }   }   files   {     total_count     results     {       download_filename       file_type       filename       path       s3_uri       sentera_id       size       updated_at       url     }   } }
