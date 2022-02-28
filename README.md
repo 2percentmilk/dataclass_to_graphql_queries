@@ -1,6 +1,11 @@
 # dataclass_to_graphql_queries
 Takes a Hierarchy of Dataclasses and creates the proper graphql query
 
+example Hierarchy:
+[Link to Dataclasses](https://github.com/2percentmilk/dataclass_to_graphql_queries/blob/main/dataclass.py)
+
+original graphql schema from [Sentera Docs](https://api.sentera.com/api/docs) - Aerial Drone and Imaging Company
+
 Creating the Class
 data_returns = special return type that isn't used on create
 Example Usage:
